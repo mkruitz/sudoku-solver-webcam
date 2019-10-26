@@ -1,6 +1,11 @@
 function Threshold(canvasStack) {
     var transformer = new TransformImage(
-        canvasStack.push('Threshold'), 
+        canvasStack.push('Threshold', {
+            title: 'GetThreshold',
+            action: function() {
+                alert(threshold);
+            }
+        }), 
         data => { convert(data); });
 
     var maxValue = 0;
