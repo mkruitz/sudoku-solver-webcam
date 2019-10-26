@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+#canvas-stack {
+  display: flex;
+}
+
+.canvas-stack-child {
+  border: 1px solid #CCC;
+}
+
+.canvas-stack-child-title {
+  font-weight: bold;
+  border: 1px solid #CCC;
+}
