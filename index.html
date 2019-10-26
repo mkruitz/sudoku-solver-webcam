@@ -27,8 +27,7 @@
                 document.getElementById('canvas-stack')
             );
 
-            var webcam = new WebCam();
-            webcam.init(
+            var webcam = new WebCam(
                 document.getElementById('video'),
                 canvasStack.push('WebCam', {
                     title: 'Re-process',
@@ -37,15 +36,12 @@
                     }
                 }));
 
-            var threshold;
-
             var actors = [
                 webcam,
                 new ToGrayScale(canvasStack),
-                threshold = new Threshold(canvasStack),
+                new Threshold(canvasStack),
                 new Finish(canvasStack)
             ];
-
 
             document
                 .getElementById('startbutton')
