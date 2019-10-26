@@ -1,9 +1,16 @@
 function Threshold(canvasStack) {
     var transformer = new TransformImage(
         canvasStack.push('Threshold', {
-            title: 'GetThreshold',
+            title: 'SetThreshold',
             action: function() {
-                alert(threshold);
+                var newValue = Number.parseInt(prompt('New threshold', threshold), 10);
+                if(Number.isNaN(newValue) || newValue < 0 || newValue > 255) {
+                    newValue = 150;
+                }
+                
+                threshold = newValue;
+
+                console.log('New threshold', threshold);
             }
         }), 
         data => { convert(data); });
