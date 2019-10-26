@@ -16,7 +16,6 @@
         <div class="canvas-stack-child">
             <div class="canvas-stack-child-title">
                 <button id="startbutton">Take photo</button>
-                <button id="reprocess">Reprocess photo</button>
             </div>
             <video id="video">Video stream not available.</video>
         </div>
@@ -31,7 +30,12 @@
             var webcam = new WebCam();
             webcam.init(
                 document.getElementById('video'),
-                canvasStack.push('WebCam'));
+                canvasStack.push('WebCam', {
+                    title: 'Re-process',
+                    action: function() {
+                        processPicture();
+                    }
+                }));
 
             var threshold;
 
@@ -47,12 +51,6 @@
                 .getElementById('startbutton')
                 .addEventListener('click', function (ev) {
                     webcam.takePicture();
-                    processPicture();
-                    ev.preventDefault();
-            }, false);
-            document
-                .getElementById('reprocess')
-                .addEventListener('click', function (ev) {
                     processPicture();
                     ev.preventDefault();
             }, false);
