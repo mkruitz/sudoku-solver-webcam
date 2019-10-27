@@ -7,6 +7,7 @@
     <script src="actors\transform-image.js"></script>
     <script src="actors\threshold.js"></script>
     <script src="actors\input.js"></script>
+    <script src="actors\fixed-img.js"></script>
     <script src="actors\finish.js"></script>
     <script src="canvas-stack.js"></script>
     <link rel="stylesheet" href="main.css" type="text/css" media="all">
@@ -18,6 +19,7 @@
             <div class="canvas-stack-child-title">
                 <button id="startbutton">Take photo</button>
             </div>
+            <img src="examples/sudoku-1.png" id="fixed-input" />
             <video id="video">Video stream not available.</video>
         </div>
     </div>
@@ -28,24 +30,31 @@
                 document.getElementById('canvas-stack')
             );
 
-            var webcam = new WebCam(
-                document.getElementById('video'),
-                new Input(canvasStack, processPicture).getCanvas());
+            // var webcam = new WebCam(
+            //     document.getElementById('video'),
+            //     new Input(canvasStack, processPicture).getCanvas());
+
+            var fixedImg = new FixedImg(
+                canvasStack,
+                document.getElementById('fixed-input'),
+                processPicture
+            );
 
             var actors = [
-                webcam,
+                //webcam,
+                fixedImg,
                 new ToGrayScale(canvasStack),
                 new Threshold(canvasStack),
                 new Finish(canvasStack)
             ];
 
-            document
-                .getElementById('startbutton')
-                .addEventListener('click', function (ev) {
-                    webcam.takePicture();
-                    processPicture();
-                    ev.preventDefault();
-            }, false);
+            // document
+            //     .getElementById('startbutton')
+            //     .addEventListener('click', function (ev) {
+            //         webcam.takePicture();
+            //         processPicture();
+            //         ev.preventDefault();
+            // }, false);
 
             function processPicture() {
                 var pictureData = null;
