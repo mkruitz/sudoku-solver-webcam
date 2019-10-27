@@ -10,7 +10,7 @@ function Finish(canvasStack) {
                 download(imgUrl);
             }
         }), 
-        data => { });
+        imgData => { });
         
     return {
         exec: transformer.exec

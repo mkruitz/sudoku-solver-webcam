@@ -1,7 +1,7 @@
 function ToGrayScale(canvasStack) {
     var transformer = new TransformImage(
         canvasStack.push('ToGrayScale'), 
-        data => { convert(data); });
+        imgData => { convert(imgData.data); });
         
     return {
         exec: transformer.exec

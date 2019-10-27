@@ -8,7 +8,7 @@ function Input(canvasStack, processPicture) {
                 processPicture();
             }
         }), 
-        data => { });
+        imgData => { });
         
     return {
         exec: transformer.exec,

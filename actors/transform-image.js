@@ -12,9 +12,8 @@ function TransformImage(canvas, transformer) {
             context.putImageData(pictureData, 0, 0);
 
             var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-            var data = imageData.data;
 
-            transformer(data);
+            transformer(imageData);
 
             context.putImageData(imageData, 0, 0);
             return imageData;

@@ -13,7 +13,7 @@ function Threshold(canvasStack) {
                 console.log('New threshold', threshold);
             }
         }), 
-        data => { convert(data); });
+        imgData => { convert(imgData.data); });
 
     var maxValue = 0;
     var minValue = 0;
@@ -44,11 +44,13 @@ function Threshold(canvasStack) {
                 min = current;
             }
 
-            if(current > threshold) {
-                data[i]     = color_white; // Red
-                data[i + 1] = color_white; // Green
-                data[i + 2] = color_white; // Blue
-            }
+            var newColor = current > threshold
+                ? color_white
+                : color_black;
+
+            data[i]     = newColor; // Red
+            data[i + 1] = newColor; // Green
+            data[i + 2] = newColor; // Blue
         }
 
         maxValue = max;
