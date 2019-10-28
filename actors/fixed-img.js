@@ -8,6 +8,7 @@ function FixedImg(canvasStack, img, processPicture) {
     }, {
         title: 'Re-process',
         action: function() {
+            console.log('Re-processing...');
             processPicture();
         }
     });
@@ -20,7 +21,9 @@ function FixedImg(canvasStack, img, processPicture) {
     };
 
     function getImageData() {
+        console.log('getImageData');
         var context = canvas.getContext('2d');
-        return context.getImageData(0, 0, canvas.width, canvas.height);
+        var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+        return imgData;
     }
 }
