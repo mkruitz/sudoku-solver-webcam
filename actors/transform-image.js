@@ -9,14 +9,14 @@ function TransformImage(canvas, transformer) {
             canvas.height = pictureData.height;
     
             var context = canvas.getContext('2d');
+            // context.putImageData(pictureData, 0, 0);
+
+            // var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+            transformer(pictureData);
+
             context.putImageData(pictureData, 0, 0);
-
-            var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
-            transformer(imageData);
-
-            context.putImageData(imageData, 0, 0);
-            return imageData;
+            return pictureData;
         }
         else {
             clear();

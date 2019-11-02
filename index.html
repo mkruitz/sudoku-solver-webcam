@@ -5,6 +5,7 @@
     <script src="actors\to-grayscale.js"></script>
     <script src="actors\to-picture.js"></script>
     <script src="actors\transform-image.js"></script>
+    <script src="actors\noise-reduction.js"></script>
     <script src="actors\threshold.js"></script>
     <script src="actors\input.js"></script>
     <script src="actors\fixed-img.js"></script>
@@ -15,7 +16,7 @@
 
 <body>
     <div id="canvas-stack">
-        <div class="canvas-stack-child">
+        <div class="canvas-stack-child" style="display: none;">
             <div class="canvas-stack-child-title">
                 <button id="startbutton">Take photo</button>
             </div>
@@ -43,9 +44,10 @@
             var actors = [
                 //webcam,
                 fixedImg,
-                new ToGrayScale(canvasStack),
+                // new ToGrayScale(canvasStack),
                 new Threshold(canvasStack),
-                new Finish(canvasStack)
+                new NoiseReduction(canvasStack)
+                // new Finish(canvasStack)
             ];
 
             // document

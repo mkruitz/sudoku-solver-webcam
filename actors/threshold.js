@@ -17,7 +17,7 @@ function Threshold(canvasStack) {
 
     var maxValue = 0;
     var minValue = 0;
-    var threshold = 150;
+    var threshold = 140;
 
     const color_white = 255;
     const color_black = 0;
@@ -51,6 +51,7 @@ function Threshold(canvasStack) {
             data[i]     = newColor; // Red
             data[i + 1] = newColor; // Green
             data[i + 2] = newColor; // Blue
+            data[i + 3] = 255;      // Alpha
         }
 
         maxValue = max;
